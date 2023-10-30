@@ -1,11 +1,9 @@
-menu = """
-
-[d] Depositar
-[s] Sacar
-[e] Extrato
-[q] Sair
-
-=> """
+menu = {
+    "[d]": "Depositar",
+    "[s]": "Sacar",
+    "[e]": "Extrato",
+    "[q]": "Sair"
+}
 
 saldo = 0
 limite = 500
@@ -15,7 +13,10 @@ LIMITE_SAQUES = 3
 
 while True:
 
-    opcao = input(menu)
+    print("\nMENU:")
+    for opcao, descricao in menu.items():
+        print(f"{opcao}] {descricao}")
+    opcao = input("Digite a opção: ")
 
     if opcao == "d":
         valor = float(input("Informe o valor do depósito: "))
