@@ -1,11 +1,14 @@
+import textwrap
+
 def menu():
-    menu = """\n
-    "[d]": "Depositar",
-    "[s]": "Sacar",
-    "[e]": "Extrato",
-    "[u]": "Criar usuário",
-    "[c]": "Criar conta",
-    "[x]": "Sair"
+    menu = """
+    [d]: Depositar,
+    [s]: Sacar,
+    [e]: Extrato,
+    [u]: Criar usuário,
+    [c]: Criar conta,
+    [m]: Mostrar contas,
+    [x]: Sair
     Digite a opção => """
     return input(menu)
 
@@ -59,11 +62,28 @@ def criar_usuario(usuarios):
     usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
     print("Usuário cadastrado com sucesso!")
 
+def criar_conta(agencia, contas, usuarios):
+    cpf = input("Digite o CPF do usuário: ")
+    for usuario in usuarios :
+        if usuario["cpf"] == cpf :
+            numero_conta = len(contas) + 1
+            contas.append({"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario})
+            print(f"A conta de {usuario["nome"]} foi criada!")
+            return
+    print("Usuário não cadastrado com esse CPF!")
 
-def criar_conta():
-    pass
+def mostrar_contas(agencia, contas):
+    print(f"Agência: {agencia}")
+    for conta in contas:        
+        linha = f"""            
+            Conta: {conta['numero_conta']}
+            Titular: {conta['usuario']['nome']}
+        """
+        print("--------------------")
+        print(textwrap.dedent(linha))
 
-def main():    
+def main(): 
+    agencia = 1
     saldo = 0
     limite = 500
     extrato = []
@@ -84,10 +104,12 @@ def main():
         elif opcao == "u":
             criar_usuario(usuarios)
         elif opcao == "c":
-            criar_conta()
+            criar_conta(agencia, contas, usuarios)
+        elif opcao == "m":
+            mostrar_contas(agencia, contas)
         elif opcao == "x":
             break
-    else:
-        print("Operação inválida, por favor selecione novamente a operação desejada.")
+        else:
+            print("Operação inválida, por favor selecione novamente a operação desejada.")
 
 main()
