@@ -3,6 +3,8 @@ def menu():
     "[d]": "Depositar",
     "[s]": "Sacar",
     "[e]": "Extrato",
+    "[u]": "Criar usuário",
+    "[c]": "Criar conta",
     "[x]": "Sair"
     Digite a opção => """
     return input(menu)
@@ -44,16 +46,30 @@ def mostrar(saldo, /, *, extrato):
         print(f'\nSaldo atual: R$ {saldo:.2f}')                
     print("===============================")
 
-def criar_usuario():
-    pass
+def criar_usuario(usuarios):
+    cpf = input("Informe o CPF (somente número): ")
+    for usuario in usuarios :
+        if usuario["cpf"] == cpf :
+            print("usuário já cadastrado com esse CPF!")
+            return
+        
+    nome = input("Digite o nome: ")
+    endereco = input("Endereço: ")
+    data_nascimento = input("Data de nascimento: ")
+    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
+    print("Usuário cadastrado com sucesso!")
 
-def criar_conta_corrente():
+
+def criar_conta():
     pass
 
 def main():    
     saldo = 0
     limite = 500
     extrato = []
+    usuarios = []
+    contas = []
+
     numero_saques = 0
     LIMITE_SAQUES = 3
 
@@ -65,6 +81,10 @@ def main():
             saldo, numero_saques = sacar(saldo=saldo, extrato=extrato, limite=limite, LIMITE_SAQUES=LIMITE_SAQUES, numero_saques=numero_saques)
         elif opcao == "e":
             mostrar(saldo, extrato = extrato)
+        elif opcao == "u":
+            criar_usuario(usuarios)
+        elif opcao == "c":
+            criar_conta()
         elif opcao == "x":
             break
     else:
