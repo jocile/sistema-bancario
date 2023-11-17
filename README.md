@@ -4,11 +4,18 @@ Desafio da trilha Python DIO
 
 ## Objetivo
 
-Criar um sistema bancário com as operações: sacar, depositar e visualizar extrato.
+Criar um sistema bancário com as operações:
+
+- sacar, depositar e visualizar extrato;
+- criar usuário e criar conta corrente.
 
 ## Desafio
 
-Fomos contratados por um grande banco para desenvolver o seu novo sistema. Esse banco deseja modernizar suas operações e para isso escolheu a linguagem Python. Para a primeira versão do sistema devemos implementar apenas 3 operações: depósito, saque e extrato.
+Fomos contratados por um grande banco para desenvolver o seu novo sistema. Esse banco deseja modernizar suas operações e para isso escolheu a linguagem Python.
+
+Para a primeira versão do sistema devemos implementar apenas 3 operações: depósito, saque e extrato.
+
+Para segunda versão precisamos deixar o código modularizado com funções e introduzir novas funcionalidades: criar usuário do banco e criar conta corrente, que vincula com o usuário.
 
 ## Operação de depósito
 
