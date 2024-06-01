@@ -1,3 +1,6 @@
+from MyApp.models import Historico
+
+
 class Conta:
     def __init__(self, numero, cliente):
         self._saldo = 0
