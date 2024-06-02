@@ -1,7 +1,8 @@
 import textwrap
 
 from MyApp.controllers import Deposito, Saque
-from MyApp.models import ContaCorrente, PessoaFisica
+from MyApp.models.Conta_corrente import ContaCorrente
+from MyApp.models.Pessoa_fisica import PessoaFisica
 
 
 class util:

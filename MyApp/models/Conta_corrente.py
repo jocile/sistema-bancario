@@ -1,6 +1,5 @@
-import Conta
-
 from MyApp.controllers import Saque
+from MyApp.models.Conta import Conta
 
 
 class ContaCorrente(Conta):

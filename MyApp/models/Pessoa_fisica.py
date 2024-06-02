@@ -1,6 +1,6 @@
 from datetime import date
 
-from MyApp.models import Cliente
+from MyApp.models.Cliente import Cliente
 
 
 class PessoaFisica(Cliente):
