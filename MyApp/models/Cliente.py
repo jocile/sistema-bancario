@@ -3,7 +3,7 @@ from MyApp.models import Conta
 
 
 class Cliente:
-    def __init__(self, endereco: str, contas: list):
+    def __init__(self, endereco: str, contas: list = None):
         self.endereco = endereco
         self.contas = contas
 

@@ -1,6 +1,6 @@
 import textwrap
 
-from MyApp.controllers import util
+from MyApp.controllers.util import util
 
 
 class __main__:
